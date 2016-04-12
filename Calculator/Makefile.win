@@ -1,0 +1,46 @@
+# Project: ÏîÄ¿1
+# Makefile created by Dev-C++ 5.6.3
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = Scan.o Print.o Main.o NumConvert.o Operate.o Calculation.o Precede.o
+LINKOBJ  = Scan.o Print.o Main.o NumConvert.o Operate.o Calculation.o Precede.o
+LIBS     = -L"F:/Program Files/Dev-Cpp/MinGW32/lib" -L"F:/Program Files/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc -g3
+INCS     = -I"F:/Program Files/Dev-Cpp/MinGW32/include" -I"F:/Program Files/Dev-Cpp/MinGW32/mingw32/include" -I"F:/Program Files/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include"
+CXXINCS  = -I"F:/Program Files/Dev-Cpp/MinGW32/include" -I"F:/Program Files/Dev-Cpp/MinGW32/mingw32/include" -I"F:/Program Files/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include" -I"F:/Program Files/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.8.1/include/c++"
+BIN      = Calculator.exe
+CXXFLAGS = $(CXXINCS) -std=c++11 -Wall -g3
+CFLAGS   = $(INCS) -std=c++11 -Wall -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Scan.o: Scan.cpp
+	$(CPP) -c Scan.cpp -o Scan.o $(CXXFLAGS)
+
+Print.o: Print.cpp
+	$(CPP) -c Print.cpp -o Print.o $(CXXFLAGS)
+
+Main.o: Main.cpp
+	$(CPP) -c Main.cpp -o Main.o $(CXXFLAGS)
+
+NumConvert.o: NumConvert.cpp
+	$(CPP) -c NumConvert.cpp -o NumConvert.o $(CXXFLAGS)
+
+Operate.o: Operate.cpp
+	$(CPP) -c Operate.cpp -o Operate.o $(CXXFLAGS)
+
+Calculation.o: Calculation.cpp
+	$(CPP) -c Calculation.cpp -o Calculation.o $(CXXFLAGS)
+
+Precede.o: Precede.cpp
+	$(CPP) -c Precede.cpp -o Precede.o $(CXXFLAGS)
