@@ -19,6 +19,7 @@ queue<string>Scan::ToStringQueue(string  input)
 	int len = input.size();
 	queue<string>que;
 	int flag = 1; 
+	bool ERROR = false;
 	
 	
 	for (int i = 0; i < len;)
@@ -65,6 +66,27 @@ queue<string>Scan::ToStringQueue(string  input)
 					}
 				}
 			}
+			else if (input[i] == '/')  //判断除数为'0'的情况，除数为0报错 
+			{
+				if (i + 2 < len && input[i + 1] == '0' && (input[i + 2] == '+' || input[i + 2] == '-' || input[i + 2] == '*'
+				                          ||input[i + 2] == '/' || input[i] == '(' || input[i + 2] == ')'))
+				{
+			        ERROR = true;
+			        break;
+				}
+				else if (i + 1 < len && input[i + 1] == '0')
+				{
+					ERROR = true;
+			        break;
+				}
+				else
+				{
+					tmp = input[i++];
+					que.push(tmp);
+					flag = 0;
+					tmp = "";
+				}
+			}
 			else
 			{
 				tmp = input[i++];
@@ -81,9 +103,9 @@ queue<string>Scan::ToStringQueue(string  input)
 			flag = 1;
 		}
 		
-		if(tmp.size() > 10)     //当数值超过十位数（包括小数位），报错 
+		if(tmp.size() > 10 || ERROR)     //当数值超过十位数（包括小数位），报错 
 		{
-			cerr << "ERROR!";
+			//cerr << "ERROR!";
 			
 			while (!que.empty())
 			{
@@ -93,6 +115,7 @@ queue<string>Scan::ToStringQueue(string  input)
 			break;
 		}
 		
+		
 		if (flag)
 		{
 			if (!tmp.empty())
@@ -101,6 +124,7 @@ queue<string>Scan::ToStringQueue(string  input)
 			}
 		}
 	}
+	
 	return que;
 }
 

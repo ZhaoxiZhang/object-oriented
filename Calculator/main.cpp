@@ -14,29 +14,37 @@ int main(int argc,char* argv[])
 	queue<string>que;
 	stack<double>stk;
 	string input;
-	
+
 	Calculation cal;
 	Print opt;
 	Scan  ipt;
-	
+
 	read(cin,ipt);
-	
+
 	if (ipt.in == "-a")
 	{
 		read(cin,ipt);
 		flag = 0;
 	}
-	
+
 	que = ipt.ToStringQueue(ipt.in);
-	stk = cal.NumCalculator(que);
-	
-	if (!flag)
+
+	if (que.empty())
 	{
-		opt.output(que);
-		cout << "=";
+		cerr << "´íÎó£¡" << endl; 
+	}
+	else
+	{
+		stk = cal.NumCalculator(que);
+
+		if (!flag)
+		{
+			opt.output(que);
+			cout << "=";
+		}
+
+		opt.putans(stk);
 	}
 	
-	opt.putans(stk);
-
 	return 0;
-} 
+}
