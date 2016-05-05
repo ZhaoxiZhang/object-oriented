@@ -1,0 +1,31 @@
+# Project: ÏîÄ¿1
+# Makefile created by Dev-C++ 5.6.3
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = Circle.o Main.o
+LINKOBJ  = Circle.o Main.o
+LIBS     = -static-libgcc -g3
+INCS     = 
+CXXINCS  = 
+BIN      = Circle.exe
+CXXFLAGS = $(CXXINCS) -Wall -g3
+CFLAGS   = $(INCS) -Wall -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Circle.o: Circle.cpp
+	$(CPP) -c Circle.cpp -o Circle.o $(CXXFLAGS)
+
+Main.o: Main.cpp
+	$(CPP) -c Main.cpp -o Main.o $(CXXFLAGS)
