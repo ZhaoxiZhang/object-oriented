@@ -43,7 +43,7 @@ int main(int argc,char* argv[])
             if (!flag)
             {
                 opt.output(que);
-                cout << " ";
+                cout << "= ";
             }
 
             opt.putans(stk);
