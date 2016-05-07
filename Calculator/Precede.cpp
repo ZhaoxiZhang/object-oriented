@@ -11,7 +11,7 @@
 using namespace std;
 
 Precede::Precede()    //定义构造函数为数据赋值 
-{
+{                   //+-*/()#   此处代表列的优先级 
 	OprRelation[0] = ">><<<>>";  // '+'
 	OprRelation[1] = ">><<<>>";  // '-'
 	OprRelation[2] = ">>>><>>";  // '*'
