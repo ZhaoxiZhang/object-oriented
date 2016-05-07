@@ -28,7 +28,7 @@ queue<string>Scan::ToStringQueue(string  input)
 		
 		while (i < len && 
 		             (input[i] == '+' || input[i] == '-' || input[i] == '*' || input[i] == '/'
-					                                     || input[i] == '(' ||input[i] == ')'))
+					                  || input[i] == '=' || input[i] == '(' ||input[i] == ')'))
 		{
 			if (input[i] == '-')       // 对'-'进行特判，防止出现类似"1--2"表达式中
 			                           // '-2' 被拆分成'-'和'2'存入队列  
@@ -86,6 +86,11 @@ queue<string>Scan::ToStringQueue(string  input)
 					flag = 0;
 					tmp = "";
 				}
+			}
+			else if (input[i] == '=')
+			{
+				i++;
+				continue;
 			}
 			else
 			{
