@@ -35,15 +35,19 @@ int main(int argc,char* argv[])
         que = ipt.ToStringQueue(ipt.in);
         if (que.empty())
         {
-            cerr << "´íÎó£¡" << endl;
+            if (!flag)
+            {
+            	opt.outputexpr(ipt.in);
+            }
+			opt.output(que);
         }
         else
         {
             stk = cal.NumCalculator(que);
             if (!flag)
             {
-                opt.output(que);
-                cout << "= ";
+				que.push("= ");
+				opt.output(que);
             }
 
             opt.putans(stk);
@@ -70,7 +74,7 @@ int main(int argc,char* argv[])
 				que = ipt.ToStringQueue(ipt.in);
                 if (que.empty())
                 {
-                    opt.fout << "´íÎó" << endl;
+					opt.fout << "´íÎó" << endl;
                 }
                 else
                 {

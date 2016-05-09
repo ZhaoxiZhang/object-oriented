@@ -9,29 +9,48 @@ using namespace std;
 
 void Print::output(queue<string>q)
 {
-	while (!q.empty())
-	{
-		cout << q.front();
-		q.pop();
-	}
+    if (q.empty())
+    {
+        cerr << "´íÎó£¡" << endl;
+    }
+    else
+    {
+        while (!q.empty())
+        {
+            cout << q.front();
+            q.pop();
+        }
+    }
+}
+
+void Print::outputexpr(string str)
+{
+	cout << str << " ";
 }
 
 void Print::putans(stack<double>stk)
 {
-	cout << stk.top() << endl;
+    cout << stk.top() << endl;
 }
 
 void Print::OutputToFile(queue<string>q)
 {
-	while (!q.empty())
-	{
-		fout << q.front();
-		q.pop();
-	}
+    if (q.empty())
+    {
+        cerr << "´íÎó£¡" << endl;
+    }
+    else
+    {
+        while (!q.empty())
+        {
+            fout << q.front();
+            q.pop();
+        }
+    }
 }
 
 void Print::PutAnsTofile(stack<double>stk)
 {
-	fout << stk.top() << endl;
+    fout << stk.top() << endl;
 }
 
