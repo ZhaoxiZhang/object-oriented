@@ -37,7 +37,7 @@ void Print::OutputToFile(queue<string>q)
 {
     if (q.empty())
     {
-        cerr << "´íÎó£¡" << endl;
+        fout << "´íÎó£¡" << endl;
     }
     else
     {

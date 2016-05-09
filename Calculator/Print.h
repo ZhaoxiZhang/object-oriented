@@ -15,7 +15,7 @@ class Print
 		void outputexpr(string str);
 		void output(queue<string>q);
 		void putans(stack<double>stk);
-		void OutputToFile(queue<string>q);
+		void OutputToFile(queue<string>q); 
 		void PutAnsTofile(stack<double>stk);
 }; 
 

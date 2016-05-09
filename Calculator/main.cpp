@@ -74,7 +74,7 @@ int main(int argc,char* argv[])
 				que = ipt.ToStringQueue(ipt.in);
                 if (que.empty())
                 {
-					opt.fout << "´íÎó" << endl;
+					opt.OutputToFile(que);
                 }
                 else
                 {
