@@ -104,6 +104,7 @@ BEGIN_MESSAGE_MAP(CCalculatorDlg, CDialogEx)
 	ON_BN_CLICKED(BUTTON_Clear1, &CCalculatorDlg::OnBnClickedClear1)
 	ON_BN_CLICKED(BUTTON_CLEAR2, &CCalculatorDlg::OnBnClickedClear2)
 	ON_BN_CLICKED(IDC_BUTTON_ABOUT, &CCalculatorDlg::OnBnClickedButtonAbout)
+	ON_BN_CLICKED(IDC_BUTTON_OK, &CCalculatorDlg::OnBnClickedButtonOk)
 END_MESSAGE_MAP()
 
 
@@ -140,7 +141,7 @@ BOOL CCalculatorDlg::OnInitDialog()
 
 	// TODO: 在此添加额外的初始化代码
 	CFont* m_font = new CFont;
-	m_font->CreateFont(36,0,0,0,FW_BOLD,FALSE,FALSE,FALSE,ANSI_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,FF_SWISS,_T("Arial"));
+	m_font->CreateFont(36,0,0,0,FW_BOLD,FALSE,FALSE,FALSE,ANSI_CHARSET,OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,DEFAULT_QUALITY,FF_SWISS,_T("微软雅黑"));
 	mEdit.SetFont(m_font,FALSE);
 	lastPress = false;
 
@@ -739,4 +740,12 @@ void CCalculatorDlg::OnBnClickedButtonAbout()
 	nRes = tipDlg.DoModal();  // 弹出对话框   
 	if (IDCANCEL == nRes)     // 判断对话框退出后返回值是否为IDCANCEL，如果是则return，否则继续向下执行   
 		return;
+}
+
+
+void CCalculatorDlg::OnBnClickedButtonOk()
+{
+	// TODO: 在此添加控件通知处理程序代码
+	tEdit.SetWindowText(_T(""));
+	rEdit.SetWindowText(_T(""));
 }

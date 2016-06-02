@@ -72,4 +72,5 @@ public:
 	afx_msg void OnBnClickedClear1();
 	afx_msg void OnBnClickedClear2();
 	afx_msg void OnBnClickedButtonAbout();
+	afx_msg void OnBnClickedButtonOk();
 };
