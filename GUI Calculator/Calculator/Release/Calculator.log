@@ -1,0 +1,16 @@
+﻿  stdafx.cpp
+  Calculation.cpp
+  Calculator.cpp
+  CalculatorDlg.cpp
+  NumConvert.cpp
+  Operate.cpp
+  Precede.cpp
+  Print.cpp
+  Scan.cpp
+  TipDlg.cpp
+  正在生成代码
+  813 of 824 functions (98.7%) were compiled, the rest were copied from previous compilation.
+    46 functions were new in current compilation
+    2 functions had inline decision re-evaluated but remain unchanged
+  已完成代码的生成
+  Calculator.vcxproj -> C:\Users\张昭锡\Desktop\GUI Calculator\GUI Calculator\Release\Calculator.exe
