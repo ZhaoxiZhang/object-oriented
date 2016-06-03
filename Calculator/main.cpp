@@ -12,7 +12,7 @@
 
 int main(int argc,char* argv[])
 {
-    int flag = 1;
+    bool IsNotA = true;
     queue<string>que;
     stack<double>stk;
     string input;
@@ -25,7 +25,7 @@ int main(int argc,char* argv[])
     {
         if (strcmp(argv[1],"-a") == 0)
         {
-            flag = 0;
+            IsNotA = false;
             ipt.in = argv[2];
         }
         else
@@ -35,38 +35,38 @@ int main(int argc,char* argv[])
         que = ipt.ToStringQueue(ipt.in);
         if (que.empty())
         {
-            if (!flag)
+            if (!IsNotA)
             {
-            	opt.outputexpr(ipt.in);
+            	opt.OutPutExpr(ipt.in);
             }
-			opt.output(que);
+			opt.OutPut(que);
         }
         else
         {
             stk = cal.NumCalculator(que);
-            if (!flag)
+            if (!IsNotA)
             {
 				que.push("= ");
-				opt.output(que);
+				opt.OutPut(que);
             }
 
-            opt.putans(stk);
+            opt.PutAns(stk);
         }
     }
     else
     {
-        opt.fin.open(argv[2]);
+        ipt.fin.open(argv[2]);
         opt.fout.open(argv[3]);
-        if (!opt.fin.is_open())
+        if (!ipt.fin.is_open())
         {
             cerr << "Could not open " << argv[2] << endl;
-            opt.fin.clear();
+            ipt.fin.clear();
         }
         else
         {
-            while(!opt.fin.eof())
+            while(!ipt.fin.eof())
             {
-                getline(opt.fin,ipt.in);
+                getline(ipt.fin,ipt.in);
                 if (ipt.in == "")
                 {
                 	continue;
@@ -84,7 +84,6 @@ int main(int argc,char* argv[])
             }
         }
     }
-
     return 0;
 }
 

@@ -7,7 +7,7 @@
 using namespace std;
 
 
-void Print::output(queue<string>q)
+void Print::OutPut(queue<string>q)
 {
     if (q.empty())
     {
@@ -23,12 +23,12 @@ void Print::output(queue<string>q)
     }
 }
 
-void Print::outputexpr(string str)
+void Print::OutPutExpr(string str)
 {
 	cout << str << " ";
 }
 
-void Print::putans(stack<double>stk)
+void Print::PutAns(stack<double>stk)
 {
     cout << stk.top() << endl;
 }

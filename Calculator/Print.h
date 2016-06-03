@@ -9,12 +9,13 @@ using namespace std;
 
 class Print
 {
+	private:
+		
 	public:
-		ifstream fin;
 		ofstream fout;
-		void outputexpr(string str);
-		void output(queue<string>q);
-		void putans(stack<double>stk);
+		void OutPutExpr(string str);
+		void OutPut(queue<string>q);
+		void PutAns(stack<double>stk);
 		void OutputToFile(queue<string>q); 
 		void PutAnsTofile(stack<double>stk);
 }; 
