@@ -7,20 +7,25 @@
 using namespace std;
 
 
+void Print::FileOpen(string FileName)
+{
+	fout.open(FileName);
+}
+
 void Print::OutPut(queue<string>q)
 {
-    if (q.empty())
-    {
-        cerr << "´íÎó£¡" << endl;
-    }
-    else
-    {
-        while (!q.empty())
-        {
-            cout << q.front();
-            q.pop();
-        }
-    }
+	if (q.empty())
+	{
+		cerr << "´íÎó£¡" << endl;
+	}
+	else
+	{
+		while (!q.empty())
+		{
+			cout << q.front();
+			q.pop();
+		}
+	}
 }
 
 void Print::OutPutExpr(string str)
@@ -30,27 +35,28 @@ void Print::OutPutExpr(string str)
 
 void Print::PutAns(stack<double>stk)
 {
-    cout << stk.top() << endl;
+	cout.precision(10);
+	cout << stk.top() << endl;
 }
 
 void Print::OutputToFile(queue<string>q)
 {
-    if (q.empty())
-    {
-        fout << "´íÎó£¡" << endl;
-    }
-    else
-    {
-        while (!q.empty())
-        {
-            fout << q.front();
-            q.pop();
-        }
-    }
+	if (q.empty())
+	{
+		fout << "´íÎó£¡" << endl;
+	}
+	else
+	{
+		while (!q.empty())
+		{
+			fout << q.front();
+			q.pop();
+		}
+	}
 }
 
 void Print::PutAnsTofile(stack<double>stk)
 {
-    fout << stk.top() << endl;
+	fout.precision(10);
+	fout << stk.top() << endl;
 }
-

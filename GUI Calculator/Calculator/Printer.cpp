@@ -39,6 +39,7 @@ void Printer::OutPutExpr(string str)
 
 void Printer::PutAns(stack<double>stk)
 {
+	cout.precision(10);
 	cout << stk.top() << endl;
 }
 
@@ -60,6 +61,7 @@ void Printer::OutputToFile(queue<string>q)
 
 void Printer::PutAnsTofile(stack<double>stk)
 {
+	fout.precision(10);
 	fout << stk.top() << endl;
 }
 

@@ -20,7 +20,8 @@ int main(int argc,char* argv[])
     Calculation cal;
     Print opt;
     Scan  ipt;
-
+    
+    cout.precision(10);
     if (strcmp(argv[1],"-f") != 0)
     {
         if (strcmp(argv[1],"-a") == 0)
@@ -37,17 +38,17 @@ int main(int argc,char* argv[])
         {
             if (!IsNotA)
             {
-            	opt.OutPutExpr(ipt.in);
+                opt.OutPutExpr(ipt.in);
             }
-			opt.OutPut(que);
+            opt.OutPut(que);
         }
         else
         {
             stk = cal.NumCalculator(que);
             if (!IsNotA)
             {
-				que.push("= ");
-				opt.OutPut(que);
+                que.push("= ");
+                opt.OutPut(que);
             }
 
             opt.PutAns(stk);
@@ -55,26 +56,27 @@ int main(int argc,char* argv[])
     }
     else
     {
-        ipt.fin.open(argv[2]);
-        opt.fout.open(argv[3]);
-        if (!ipt.fin.is_open())
+        ipt.FileOpen(argv[2]);
+        opt.FileOpen(argv[3]);
+        if (!ipt.FileIsOpen())
         {
             cerr << "Could not open " << argv[2] << endl;
-            ipt.fin.clear();
+            ipt.FileClear();
         }
         else
         {
-            while(!ipt.fin.eof())
+            while (!ipt.IsEof())
             {
-                getline(ipt.fin,ipt.in);
+                ipt.Read();
+                //getline(ipt.fin, ipt.in);
                 if (ipt.in == "")
                 {
-                	continue;
+                    continue;
                 }
-				que = ipt.ToStringQueue(ipt.in);
+                que = ipt.ToStringQueue(ipt.in);
                 if (que.empty())
                 {
-					opt.OutputToFile(que);
+                    opt.OutputToFile(que);
                 }
                 else
                 {

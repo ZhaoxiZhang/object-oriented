@@ -9,10 +9,14 @@ using namespace std;
 class Scan
 {
 	private:
-		
-	public:
 		ifstream fin;
+	public:
 		string in;
+		void FileOpen(string FileName);
+		void FileClear();
+		bool IsEof();
+		bool FileIsOpen();
+		void Read();
 		friend istream &read(istream &, Scan &);
 		queue<string>ToStringQueue(string  input);
 };

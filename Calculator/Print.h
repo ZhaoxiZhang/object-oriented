@@ -10,13 +10,13 @@ using namespace std;
 class Print
 {
 	private:
-		
-	public:
 		ofstream fout;
+	public:
+		void FileOpen(string FileName);
 		void OutPutExpr(string str);
 		void OutPut(queue<string>q);
 		void PutAns(stack<double>stk);
-		void OutputToFile(queue<string>q); 
+		void OutputToFile(queue<string>q);
 		void PutAnsTofile(stack<double>stk);
 }; 
 

@@ -473,6 +473,7 @@ void CCalculatorDlg::OnBnClickedEql()
 	{
 		string tmp;
 		stringstream ss;
+		ss.precision(10);
 		stk = cal.NumCalculator(que);
 		ss << stk.top();
 		ss >> tmp;
