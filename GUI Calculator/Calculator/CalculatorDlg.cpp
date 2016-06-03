@@ -12,8 +12,8 @@ queue<string>que;
 stack<double>stk;
 
 Calculation cal;
-Print opt;
-Scan ipt;
+Printer opt;
+Scanner ipt;
 string test_str_, results_str_;
 
 
@@ -370,11 +370,8 @@ void CCalculatorDlg::OnBnClickedRight()
 	mEdit.GetWindowText(str);
 	if(str != "")
 	{
-		if(str.GetAt(str.GetLength()-1)>='0' && str.GetAt(str.GetLength()-1)<='9')
-		{
-			str = str + _T(")");
-			mEdit.SetWindowText(str);
-		}
+		str = str + _T(")");
+		mEdit.SetWindowText(str);
 	}
 }
 
@@ -686,18 +683,19 @@ void CCalculatorDlg::OnEnChangeSaveEdit()
 void CCalculatorDlg::OnBnClickedOk()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	ipt.fin.open(test_str_);
-	opt.fout.open(results_str_);
-	if (!ipt.fin.is_open())
+	ipt.FileOpen(test_str_);
+	opt.FileOpen(results_str_);
+	if (!ipt.FileIsOpen())
 	{
 		cerr << "Could not open " << results_str_ << endl;
-		ipt.fin.clear();
+		ipt.FileClear();
 	}
 	else
 	{
-		while (!ipt.fin.eof())
+		while (!ipt.IsEof())
 		{
-			getline(ipt.fin, ipt.in);
+			ipt.Read();
+			//getline(ipt.fin, ipt.in);
 			if (ipt.in == "")
 			{
 				continue;
@@ -746,6 +744,13 @@ void CCalculatorDlg::OnBnClickedButtonAbout()
 void CCalculatorDlg::OnBnClickedButtonOk()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	tEdit.SetWindowText(_T(""));
-	rEdit.SetWindowText(_T(""));
+	CWnd *pFocusWnd = GetFocus();
+	if (pFocusWnd && (pFocusWnd == GetDlgItem(IDC_OPEN_EDIT)))
+	{
+		tEdit.SetWindowText(_T(""));
+	}
+	else if (pFocusWnd && (pFocusWnd == GetDlgItem(IDC_SAVE_EDIT)))
+	{
+		rEdit.SetWindowText(_T(""));
+	}
 }

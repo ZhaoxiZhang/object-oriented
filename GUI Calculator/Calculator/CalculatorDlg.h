@@ -8,8 +8,8 @@
 #include "numconvert.h"
 #include "operate.h"
 #include "precede.h"
-#include "print.h"
-#include "scan.h"
+#include "printer.h"
+#include "scanner.h"
 
 // CCalculatorDlg ¶Ô»°¿ò
 class CCalculatorDlg : public CDialogEx
