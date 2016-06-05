@@ -13,6 +13,7 @@ class Print
 		ofstream fout;
 	public:
 		void FileOpen(string FileName);
+		void FileClose();
 		void OutPutExpr(string str);
 		void OutPut(queue<string>q);
 		void PutAns(stack<double>stk);

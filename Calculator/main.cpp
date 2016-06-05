@@ -85,6 +85,9 @@ int main(int argc,char* argv[])
                 }
             }
         }
+        
+        ipt.FileClose();
+        opt.FileClose();
     }
     return 0;
 }

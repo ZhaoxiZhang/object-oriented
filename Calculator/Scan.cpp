@@ -38,6 +38,11 @@ bool Scan::IsEof()
 {
 	return fin.eof();
 }
+void Scan::FileClose()
+{
+	fin.close();
+}
+
 
 queue<string>Scan::ToStringQueue(string  input)
 {
@@ -99,7 +104,7 @@ queue<string>Scan::ToStringQueue(string  input)
 					ERROR_1 = true;
 					break;
 				}
-				else if (i + 1 < len && input[i + 1] == '0')
+				else if (i ==len - 1 && input[i] == '0')
 				{
 					ERROR_1 = true;
 					break;
