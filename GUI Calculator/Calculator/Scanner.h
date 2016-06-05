@@ -16,6 +16,7 @@ public:
 	void FileClear();
 	bool IsEof();
 	bool FileIsOpen();
+	void FileClose();
 	void Read();
 	friend istream &read(istream &, Scanner &);
 	queue<string>ToStringQueue(string  input);

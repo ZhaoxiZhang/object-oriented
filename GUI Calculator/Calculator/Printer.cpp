@@ -16,6 +16,11 @@ void Printer::FileOpen(string FileName)
 	fout.open(FileName);
 }
 
+void Printer::FileClose()
+{
+	fout.close();
+}
+
 void Printer::OutPut(queue<string>q)
 {
 	if (q.empty())
@@ -40,7 +45,15 @@ void Printer::OutPutExpr(string str)
 void Printer::PutAns(stack<double>stk)
 {
 	cout.precision(10);
-	cout << stk.top() << endl;
+	double tmp = stk.top();
+	if (tmp == -0)
+	{
+		cout << "0" << endl;
+	}
+	else
+	{
+		cout << stk.top() << endl;
+	}
 }
 
 void Printer::OutputToFile(queue<string>q)
@@ -62,6 +75,14 @@ void Printer::OutputToFile(queue<string>q)
 void Printer::PutAnsTofile(stack<double>stk)
 {
 	fout.precision(10);
-	fout << stk.top() << endl;
+	double tmp = stk.top();
+	if (tmp == -0)
+	{
+		fout << "0" << endl;
+	}
+	else
+	{
+		fout << stk.top() << endl;
+	}
 }
 
